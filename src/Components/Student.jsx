@@ -37,7 +37,7 @@ const CategoryInputForm = () => {
     setSubmitError(null);
 
     try {
-      const response = await fetch('http://localhost:8000/api/submit-project', {
+      const response = await fetch('https://gaurav-backend.vercel.app/api/submit-project', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
