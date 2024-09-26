@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight, ChevronLeft, Check } from 'lucide-react';
+import axios from 'axios';
 
 const categories = [
   "Research Grants",
@@ -37,13 +38,7 @@ const CategoryInputForm = () => {
     setSubmitError(null);
 
     try {
-      const response = await fetch('https://gaurav-backend.onrender.com/api/submit-project', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      });
+      const response = await axios.post('https://gaurav-backend.onrender.com/api/submit-project', {formData} );
 
       if (!response.ok) {
         throw new Error('Submission failed');
